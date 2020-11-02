@@ -5,62 +5,62 @@ using namespace std;
 template <typename Array> class Vector
 {
 public:
-//ËÄ´ó¹¹Ôìº¯Êı---------------------------------------------
-    Vector(int size=0,const Array num=0);//¹¹Ôìº¯Êı
-    Vector(const Vector<Array> &A);//¿½±´¹¹Ôì
-    virtual ~Vector();//Îö¹¹º¯Êı
-    Vector<Array> & operator=(const Vector &V);//¸³Öµ¹¹Ôì
+//å››å¤§æ„é€ å‡½æ•°---------------------------------------------
+    Vector(int size=0,const Array num=0);//æ„é€ å‡½æ•°
+    Vector(const Vector<Array> &A);//æ‹·è´æ„é€ 
+    virtual ~Vector();//ææ„å‡½æ•°
+    Vector<Array> & operator=(const Vector &V);//èµ‹å€¼æ„é€ 
 
-//ÊôĞÔº¯Êı----------------------------------------
-    void ShowVector() const; //ÏòÁ¿Õ¹Ê¾
-    void ShowD() const; //Õ¹Ê¾Î¬¶È
-    int GetD() const; //»ñµÃÎ¬¶È
-    double Mod() const; //È¡Ä£³¤
-    Vector<Array> & Normalize();//µ¥Î»»¯
-    bool Empty() const;//È·ÈÏÏòÁ¿ÊÇ·ñÎª¿Õ
-//²Ù×÷º¯Êı-----------------------------------------------
-    Vector<Array> & SetVector(); //ÖµĞŞ¸Ä
-    Array operator[](const int pos);//È¡Öµ
-    Vector<Array> & Resize(const int Num);//³ß´çĞŞ¸Ä
-    Vector<Array> & Append(const Array a_num=0);//ÔÚÄ©Î²Ìí¼ÓÒ»¸öÊı×Ö
-    Vector<Array> & Pop();//É¾µôÄ©Î²µÄÒ»¸öÊı×Ö
-    int Find(const Array f_num) const;//²éÕÒ²¢·µ»ØÊı×ÖÔÚÏòÁ¿ÖĞµÄÎ»ÖÃ£¬Èç¹ûÃ»ÓĞÔòÊä³öÎª-1
+//å±æ€§å‡½æ•°----------------------------------------
+    void ShowVector() const; //å‘é‡å±•ç¤º
+    void ShowD() const; //å±•ç¤ºç»´åº¦
+    int GetD() const; //è·å¾—ç»´åº¦
+    double Mod() const; //å–æ¨¡é•¿
+    Vector<Array> & Normalize();//å•ä½åŒ–
+    bool Empty() const;//ç¡®è®¤å‘é‡æ˜¯å¦ä¸ºç©º
+//æ“ä½œå‡½æ•°-----------------------------------------------
+    Vector<Array> & SetVector(); //å€¼ä¿®æ”¹
+    Array operator[](const int pos);//å–å€¼
+    Vector<Array> & Resize(const int Num);//å°ºå¯¸ä¿®æ”¹
+    Vector<Array> & Append(const Array a_num=0);//åœ¨æœ«å°¾æ·»åŠ ä¸€ä¸ªæ•°å­—
+    Vector<Array> & Pop();//åˆ æ‰æœ«å°¾çš„ä¸€ä¸ªæ•°å­—
+    int Find(const Array f_num) const;//æŸ¥æ‰¾å¹¶è¿”å›æ•°å­—åœ¨å‘é‡ä¸­çš„ä½ç½®ï¼Œå¦‚æœæ²¡æœ‰åˆ™è¾“å‡ºä¸º-1
 
-//ÔËËãº¯Êı-----------------------------------------------
-    Vector<Array> & Plus(const Vector<Array> &vec); //Á½¸öÏòÁ¿Ïà¼Ó(µ±³¤¶È²»Í¬Ê±ÎŞ·¨Ïà¼Ó)
-    Vector<Array> & Plus(int pos,Array a_num); //ÏòÁ¿ÖĞµÚpos¸öÊı¾İ¼Óa_num(´Ó0¿ªÊ¼)
-    Vector<Array> & ImPlus(const Vector<Array> &vec);   //Á½¸öÏòÁ¿Ç¿ÖÆÏà¼Ó(µ±³¤¶È²»Í¬Ê±¿ÉÒÔÏà¼Ó)
+//è¿ç®—å‡½æ•°-----------------------------------------------
+    Vector<Array> & Plus(const Vector<Array> &vec); //ä¸¤ä¸ªå‘é‡ç›¸åŠ (å½“é•¿åº¦ä¸åŒæ—¶æ— æ³•ç›¸åŠ )
+    Vector<Array> & Plus(int pos,Array a_num); //å‘é‡ä¸­ç¬¬posä¸ªæ•°æ®åŠ a_num(ä»0å¼€å§‹)
+    Vector<Array> & ImPlus(const Vector<Array> &vec);   //ä¸¤ä¸ªå‘é‡å¼ºåˆ¶ç›¸åŠ (å½“é•¿åº¦ä¸åŒæ—¶å¯ä»¥ç›¸åŠ )
 
-    Vector<Array>  operator+(const Vector<Array> &vec); //ÖØÔØ+ÔËËã·û
-    Vector<Array>  operator+(const Array Num); //ÖØÔØ+ÔËËã·û
-    Vector<Array> & operator+=(const Vector<Array> &vec); //ÖØÔØ+=ÔËËã·û
-    Vector<Array> & operator+=(const Array Num); //ÖØÔØ+=ÔËËã·û
+    Vector<Array>  operator+(const Vector<Array> &vec); //é‡è½½+è¿ç®—ç¬¦
+    Vector<Array>  operator+(const Array Num); //é‡è½½+è¿ç®—ç¬¦
+    Vector<Array> & operator+=(const Vector<Array> &vec); //é‡è½½+=è¿ç®—ç¬¦
+    Vector<Array> & operator+=(const Array Num); //é‡è½½+=è¿ç®—ç¬¦
 
-    Vector<Array>  operator-(const Vector<Array> &vec); //ÖØÔØ-ÔËËã·û
-    Vector<Array>  operator-(const Array Num); //ÖØÔØ-ÔËËã·û
-    Vector<Array> & operator-=(const Vector<Array> &vec); //ÖØÔØ-=ÔËËã·û
-    Vector<Array> & operator-=(const Array Num); //ÖØÔØ-=ÔËËã·û
+    Vector<Array>  operator-(const Vector<Array> &vec); //é‡è½½-è¿ç®—ç¬¦
+    Vector<Array>  operator-(const Array Num); //é‡è½½-è¿ç®—ç¬¦
+    Vector<Array> & operator-=(const Vector<Array> &vec); //é‡è½½-=è¿ç®—ç¬¦
+    Vector<Array> & operator-=(const Array Num); //é‡è½½-=è¿ç®—ç¬¦
 
-    Array operator*(const Vector<Array> &vec);//ÖØÔØ*ÔËËã·û,µã³Ë
-    Vector<Array>  operator*(const Array Num); //ÖØÔØ*ÔËËã·û£¬Ã¿¸ö³ËÒÔNum
-    Vector<Array> & operator*=(const Array Num); //ÖØÔØ*=ÔËËã·û
+    Array operator*(const Vector<Array> &vec);//é‡è½½*è¿ç®—ç¬¦,ç‚¹ä¹˜
+    Vector<Array>  operator*(const Array Num); //é‡è½½*è¿ç®—ç¬¦ï¼Œæ¯ä¸ªä¹˜ä»¥Num
+    Vector<Array> & operator*=(const Array Num); //é‡è½½*=è¿ç®—ç¬¦
 
     friend Vector operator+(const Array Num,Vector<Array> &vec)
     {
-        return vec+Num;   //+ÓÑÔªº¯Êı
+        return vec+Num;   //+å‹å…ƒå‡½æ•°
     }
     friend Vector operator*(const Array Num,Vector<Array>&vec)
     {
         return vec*Num;
     }
 
-//³ÉÔ±Êı¾İ--------------------------------------------------
+//æˆå‘˜æ•°æ®--------------------------------------------------
 private:
     Array *a;
     int num;
 };
 template <typename Array>
-ostream&  operator<<(ostream&  out,Vector<Array>& t)     // Êä³öÁ÷ÖØÔØÉùÃ÷¼°ÊµÏÖ
+ostream&  operator<<(ostream&  out,Vector<Array>& t)     // è¾“å‡ºæµé‡è½½å£°æ˜åŠå®ç°
 {
     try
     {
@@ -71,7 +71,7 @@ ostream&  operator<<(ostream&  out,Vector<Array>& t)     // Êä³öÁ÷ÖØÔØÉùÃ÷¼°ÊµÏÖ
         {
             out<<"[ ";
             for(int i=0; i<t.GetD(); i++)
-                out<<t[i]<<(i==t.GetD()-1?" ]":" , ");  //ÀûÓÃÈıÔª²Ù×÷·û°´¸ñÊ½Êä³ö
+                out<<t[i]<<(i==t.GetD()-1?" ]":" , ");  //åˆ©ç”¨ä¸‰å…ƒæ“ä½œç¬¦æŒ‰æ ¼å¼è¾“å‡º
         }
     }
     catch (int)
@@ -82,16 +82,16 @@ ostream&  operator<<(ostream&  out,Vector<Array>& t)     // Êä³öÁ÷ÖØÔØÉùÃ÷¼°ÊµÏÖ
 }
 
 template <typename Array>
-Vector<Array>::Vector(int size,const Array num_):num(size)    //¹¹Ôìº¯Êı£¬´´½¨Ò»¸ö³õÊ¼ÖµÎªnum_£¬Î¬¶ÈÎªsizeµÄÊı×é£¬Ê¹ÓÃÁËÃ°ºÅ±í´ïÊ½À´³õÊ¼»¯
+Vector<Array>::Vector(int size,const Array num_):num(size)    //æ„é€ å‡½æ•°ï¼Œåˆ›å»ºä¸€ä¸ªåˆå§‹å€¼ä¸ºnum_ï¼Œç»´åº¦ä¸ºsizeçš„æ•°ç»„ï¼Œä½¿ç”¨äº†å†’å·è¡¨è¾¾å¼æ¥åˆå§‹åŒ–
 {
-    num=(num>0)?num:0;  // Ğ¡ÓÚµÈÓÚ0µÄ¾ù»á±ä³É0
+    num=(num>0)?num:0;  // å°äºç­‰äº0çš„å‡ä¼šå˜æˆ0
     a=new Array[num];
     for(int i=0; i<num; i++)
-        a[i]=num_;  //Öğ¸ö¸³Öµ
+        a[i]=num_;  //é€ä¸ªèµ‹å€¼
 }
 
 template <typename Array>
-Vector<Array>::Vector(const Vector<Array> &A) //Éî¿½±´¹¹Ôì
+Vector<Array>::Vector(const Vector<Array> &A) //æ·±æ‹·è´æ„é€ 
 {
     num=A.num;
     if(num>0)
@@ -102,13 +102,13 @@ Vector<Array>::Vector(const Vector<Array> &A) //Éî¿½±´¹¹Ôì
     }
 }
 template <typename Array>
-Vector<Array>::~Vector()    //Îö¹¹º¯Êı
+Vector<Array>::~Vector()    //ææ„å‡½æ•°
 {
     if(a!=NULL)
         delete [] a;
 }
 template <typename Array>
-Vector<Array>& Vector<Array> :: operator=(const Vector &V)  //¸³Öµ¹¹Ôìº¯Êı
+Vector<Array>& Vector<Array> :: operator=(const Vector &V)  //èµ‹å€¼æ„é€ å‡½æ•°
 {
     if(num!=V.num)
     {
@@ -121,14 +121,14 @@ Vector<Array>& Vector<Array> :: operator=(const Vector &V)  //¸³Öµ¹¹Ôìº¯Êı
     return *this;
 }
 template <typename Array>
-Vector<Array>& Vector<Array> :: SetVector()     //ÎªÏòÁ¿ÖØĞÂ¸³Öµ
+Vector<Array>& Vector<Array> :: SetVector()     //ä¸ºå‘é‡é‡æ–°èµ‹å€¼
 {
     if(num!=0&&a!=NULL)
         for(int i=0; i<num; cin>>a[i],i++);
     return *this;
 }
 template <typename Array>
-void Vector<Array> ::ShowVector() const     //³£Á¿º¯Êı£¬·ÀÖ¹¶ÔÄÚÈİµÄĞŞ¸Ä
+void Vector<Array> ::ShowVector() const     //å¸¸é‡å‡½æ•°ï¼Œé˜²æ­¢å¯¹å†…å®¹çš„ä¿®æ”¹
 {
     if(num!=0&&num!=1)
         for(int i=0; i<num; i++)
@@ -160,7 +160,7 @@ template <typename Array>
 Vector<Array> & Vector<Array> ::Resize(const int Num)
 {
     {
-        if(Num<=0&&num!=0)  //ÒªĞŞ¸Äµ½¿ÕÎ¬¶È£¬Ö±½ÓÉ¾³ı¿Õ¼ä
+        if(Num<=0&&num!=0)  //è¦ä¿®æ”¹åˆ°ç©ºç»´åº¦ï¼Œç›´æ¥åˆ é™¤ç©ºé—´
         {
             delete [] a;
             a=NULL;
@@ -169,12 +169,12 @@ Vector<Array> & Vector<Array> ::Resize(const int Num)
         }
         else if(Num>num)
         {
-            Array * num_=new Array[num];    //´´½¨Ò»¸öÁÙÊ±´¢´æ¿Õ¼ä
-            for(int i=0; i<num; num_[i]=a[i],i++);  //ÀûÓÃ¸ÃÁÙÊ±¿Õ¼ä±£´æÊı¾İ
+            Array * num_=new Array[num];    //åˆ›å»ºä¸€ä¸ªä¸´æ—¶å‚¨å­˜ç©ºé—´
+            for(int i=0; i<num; num_[i]=a[i],i++);  //åˆ©ç”¨è¯¥ä¸´æ—¶ç©ºé—´ä¿å­˜æ•°æ®
             delete [] a;
-            a=new Array[Num];   //ÖØĞÂ´´½¨
+            a=new Array[Num];   //é‡æ–°åˆ›å»º
             for(int i=0; i<Num; i++)
-                a[i]=(i<num?num_[i]:0);//Ä¬ÈÏÎª0Ìî³ä
+                a[i]=(i<num?num_[i]:0);//é»˜è®¤ä¸º0å¡«å……
             num=Num;
             delete [] num_;
             return *this;
@@ -185,7 +185,7 @@ Vector<Array> & Vector<Array> ::Resize(const int Num)
             for(int i=0; i<Num; i++)
                 num_[i]=a[i];
             delete [] a;
-            a=new Array[Num];   //µÈ¼ÛÓÚÉ¾³ıÁË¶àÓàµÄ²¿·Ö
+            a=new Array[Num];   //ç­‰ä»·äºåˆ é™¤äº†å¤šä½™çš„éƒ¨åˆ†
             for(int i=0; i<Num; i++)
                 a[i]=num_[i];
             delete [] num_;
@@ -194,7 +194,7 @@ Vector<Array> & Vector<Array> ::Resize(const int Num)
         }
         else if(num==Num)
             cout<<"Nothing to operate"<<endl;
-        return *this;//¿¼ÂÇµ½ÁËµ±Num<0µÄÇé¿ö£¬²»Âú×ãÉÏÊöÌõ¼şµÄÊ±ºòÖ±½Ó·µ»Ø¡£
+        return *this;//è€ƒè™‘åˆ°äº†å½“Num<0çš„æƒ…å†µï¼Œä¸æ»¡è¶³ä¸Šè¿°æ¡ä»¶çš„æ—¶å€™ç›´æ¥è¿”å›ã€‚
     }
 }
 template <typename Array>
@@ -237,9 +237,9 @@ Vector<Array> & Vector<Array>::Normalize()
 {
     try
     {
-        Array mods=this->Mod(); //µ÷ÓÃModº¯Êı
-        if(mods==0)
-            throw(int)-1;
+        Array mods=this->Mod(); //è°ƒç”¨Modå‡½æ•°
+        if(num==0)
+            throw(int)-1; //å½“ç»´åº¦ä¸º0æ—¶æŠ›æ·å¼‚å¸¸
         for(int i=0; i<this->num; i++)
             this->a[i]=this->a[i]/mods;
     }
@@ -251,7 +251,7 @@ Vector<Array> & Vector<Array>::Normalize()
     return *this;
 }
 template <typename Array>
-bool Vector<Array>::Empty() const   //¼ì²âÏòÁ¿ÊÇ·ñÎª¿Õ
+bool Vector<Array>::Empty() const   //æ£€æµ‹å‘é‡æ˜¯å¦ä¸ºç©º
 {
     if (num==0)
         return true;
@@ -260,7 +260,7 @@ bool Vector<Array>::Empty() const   //¼ì²âÏòÁ¿ÊÇ·ñÎª¿Õ
 }
 
 template <typename Array>
-Vector<Array> & Vector<Array> ::Append(const Array a_num)//ÔÚÄ©Î²Ìí¼ÓÒ»¸öÊı×Ö
+Vector<Array> & Vector<Array> ::Append(const Array a_num)//åœ¨æœ«å°¾æ·»åŠ ä¸€ä¸ªæ•°å­—
 {
     if(this->Empty())
     {
@@ -283,7 +283,7 @@ Vector<Array> & Vector<Array> ::Append(const Array a_num)//ÔÚÄ©Î²Ìí¼ÓÒ»¸öÊı×Ö
 }
 
 template <typename Array>
-Vector<Array>  & Vector<Array> ::Pop()//É¾µôÄ©Î²µÄÒ»¸öÊı×Ö
+Vector<Array>  & Vector<Array> ::Pop()//åˆ æ‰æœ«å°¾çš„ä¸€ä¸ªæ•°å­—
 {
     try
     {
@@ -307,7 +307,7 @@ Vector<Array>  & Vector<Array> ::Pop()//É¾µôÄ©Î²µÄÒ»¸öÊı×Ö
     return *this;
 }
 template <typename Array>
-int Vector<Array> ::Find(const Array f_num) const//²éÕÒ²¢·µ»ØÊı×ÖÔÚÏòÁ¿ÖĞµÄÎ»ÖÃ£¬Èç¹ûÃ»ÓĞÔòÊä³öÎª-1
+int Vector<Array> ::Find(const Array f_num) const//æŸ¥æ‰¾å¹¶è¿”å›æ•°å­—åœ¨å‘é‡ä¸­çš„ä½ç½®ï¼Œå¦‚æœæ²¡æœ‰åˆ™è¾“å‡ºä¸º-1
 {
     for(int i=0; i<num; i++)
         if(a[i]==f_num)
@@ -374,7 +374,7 @@ Vector<Array> & Vector<Array>::ImPlus(const Vector &vec)
     }
     return *this;
 }
-//________________________________________________________________________________________________________________________
+
 template <typename Array>
 Vector<Array>  Vector<Array>::operator+(const Vector &vec)
 {
@@ -433,7 +433,7 @@ Vector<Array> & Vector<Array>::operator+=(const Vector &vec)
     if(num==vec.num&&num!=0)
     {
         for(int i=0; i<num; i++)
-            a[i]=vec.a[i]+a[i];
+            a[i]=vec.a[i]+a[i];          
         return *this;
     }
     else
