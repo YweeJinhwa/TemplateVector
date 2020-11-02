@@ -238,15 +238,16 @@ Vector<Array> & Vector<Array>::Normalize()
     try
     {
         Array mods=this->Mod(); //调用Mod函数
-        if(num==0)
-            throw(int)-1; //当维度为0时抛掷异常
+        if(mods==0)
+            throw(int)-1;
         for(int i=0; i<this->num; i++)
             this->a[i]=this->a[i]/mods;
     }
     catch(int)
     {
-        cout<<"Can't Normalize this empty Vector!"<<endl;
+        cout<<"Can't Normalize this Vector!"<<endl;
     }
+
     return *this;
 }
 template <typename Array>
